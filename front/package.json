@@ -6,12 +6,22 @@
   "scripts": {
     "dev": "next"
   },
-  "author": "Sooveloper",
+  "author": "Outwater",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "antd": "^4.4.3",
+    "axios": "^0.19.2",
     "next": "^9.4.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8"
   }
 }

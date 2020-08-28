@@ -30,6 +30,7 @@ const Signup = () => {
     setTermError(false);
     setTerm(e.target.checked);
   }, []);
+  const keyword = encodeURIComponent("강원", "UTF-8");
 
   const onSubmit = useCallback(() => {
     if (password !== passwordCheck) {
@@ -38,7 +39,7 @@ const Signup = () => {
     if (!term) {
       return setTermError(true);
     }
-    console.log(id, password, passwordCheck);
+    console.log(id, password, passwordCheck, keyword);
   }, [password, passwordCheck, term]);
   return (
     <AppLayout>

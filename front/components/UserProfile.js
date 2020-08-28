@@ -1,38 +1,41 @@
 import React, { useCallback } from "react";
-import PropTypes from "prop-types";
 import { Card, Avatar, Button } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAction } from "../reducers";
 
-const UserProfile = ({ setIsLoggedIn }) => {
+const UserProfile = () => {
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const onLogOut = useCallback(() => {
-    setIsLoggedIn(false);
+    dispatch(logoutAction);
   }, []);
 
   return (
     <Card
       actions={[
         <div key="point">
-          point
+          포스트
           <br />
-          10
+          {user.Posts.length}
         </div>,
         <div key="message">
           쪽지
-          <br /> 3
+          <br /> {user.Followings.length}
         </div>,
         <div key="follower">
           팔로워
-          <br /> 1
+          <br /> {user.Followers.length}
         </div>,
       ]}
     >
-      <Card.Meta avatar={<Avatar>아바타</Avatar>} title="Outwater"></Card.Meta>
+      <Card.Meta
+        avatar={<Avatar>{user.nickname[0]}</Avatar>}
+        title={user.nickname}
+      ></Card.Meta>
       <Button onClick={onLogOut}>로그아웃</Button>
     </Card>
   );
-};
-
-UserProfile.propTypes = {
-  setIsLoggedIn: PropTypes.node.isRequired,
 };
 
 export default UserProfile;
